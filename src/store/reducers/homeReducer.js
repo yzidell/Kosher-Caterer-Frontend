@@ -4,7 +4,7 @@ import api from "../../api/api";
 
 export const get_category = createAsyncThunk(
     'product/get_category',
-    async(webSiteOrigin, { fulfillWithValue }) => {
+    async(webSiteOrigin, { fulfillWithValue, rejectWithValue }) => {
         try {
             //const {data} = await api.get(`/products-get?page=${page}&&searchValue=${searchValue}&&parPage=${parPage}`,{withCredentials: true}) 
             //const {data} = await api.get('/home/get-categorys')
@@ -14,6 +14,7 @@ export const get_category = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.response)
+            return rejectWithValue(error)
         }
     }
 )
@@ -21,7 +22,7 @@ export const get_category = createAsyncThunk(
 
 export const get_mainIngredient = createAsyncThunk(
     'product/get_mainIngredient',
-    async(webSiteOrigin,{ fulfillWithValue }) => {
+    async(webSiteOrigin,{ fulfillWithValue, rejectWithValue }) => {
         try {
             //const {data} = await api.get(`/products-get?page=${page}&&searchValue=${searchValue}&&parPage=${parPage}`,{withCredentials: true}) 
             //const {data} = await api.get('home/get-mainIngredients')
@@ -31,6 +32,7 @@ export const get_mainIngredient = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.response)
+            return rejectWithValue(error)
         }
     }
 );
@@ -38,7 +40,7 @@ export const get_mainIngredient = createAsyncThunk(
 
 export const get_products = createAsyncThunk(
     'product/get_products',
-    async(webSiteOrigin, { fulfillWithValue }) => {
+    async(webSiteOrigin, { fulfillWithValue, rejectWithValue }) => {
         try {
             //const {data} = await api.get(`/products-get?page=${page}&&searchValue=${searchValue}&&parPage=${parPage}`,{withCredentials: true}) 
             //const {data} = await api.get('/home/get-products')
@@ -49,6 +51,7 @@ export const get_products = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -76,7 +79,7 @@ export const get_products = createAsyncThunk(
 //price_range_product
 export const price_range_product = createAsyncThunk(
     'product/price_range_product',
-    async(webSiteOrigin, { fulfillWithValue }) => { 
+    async(webSiteOrigin, { fulfillWithValue, rejectWithValue }) => { 
         // from shops page useEffect(() => { dispatch(price_range_product(webSiteOrigin))
         try {
             //const {data} = await api.get(`/home/price-range-latest-product`) ///${webSiteOrigin}
@@ -87,6 +90,7 @@ export const price_range_product = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -94,7 +98,7 @@ export const price_range_product = createAsyncThunk(
 
 export const query_products = createAsyncThunk(
     'product/query_products',
-    async(query, { fulfillWithValue }) => {
+    async(query, { fulfillWithValue, rejectWithValue }) => {
         //console.log(query)
         try {
             //const {data} = await api.get(`/home/query-products?category=${query.category}&&rating=${query.rating}&&lowPrice=${query.low}&&highPrice=${query.high}&&sortPrice=${query.sortPrice}&&pageNumber=${query.pageNumber} `)
@@ -104,6 +108,7 @@ export const query_products = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -111,7 +116,7 @@ export const query_products = createAsyncThunk(
 
 export const get_product_details = createAsyncThunk(
     'product/get_product_details',
-    async(slug, { fulfillWithValue }) => {
+    async(slug, { fulfillWithValue, rejectWithValue }) => {
         //async({productId}, { fulfillWithValue }) => {
         //console.log('slug ', slug)//, 'slug ', slug
         try {
@@ -122,6 +127,7 @@ export const get_product_details = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -129,7 +135,7 @@ export const get_product_details = createAsyncThunk(
 
 export const get_product_deposit_details = createAsyncThunk(
     'product/get_product_deposit_details',
-    async(webSiteOrigin, { fulfillWithValue }) => {
+    async(webSiteOrigin, { fulfillWithValue, rejectWithValue }) => {
         //console.log(webSiteOrigin)     
         // from shops page useEffect(() => { dispatch(price_range_product(webSiteOrigin))
         //try {
@@ -138,20 +144,20 @@ export const get_product_deposit_details = createAsyncThunk(
         //         const {data} = await api.get(`/home/price-range-latest-product?webSiteOrigin=${encodeURIComponent(webSiteOrigin)}`)
        
 
-//     async(slug, { fulfillWithValue }) => {
-//     //async({productId}, { fulfillWithValue }) => {
-//         //console.log('slug ', slug)//, 'slug ', slug
+            //     async(slug, { fulfillWithValue }) => {
+            //     //async({productId}, { fulfillWithValue }) => {
+            //         //console.log('slug ', slug)//, 'slug ', slug
         try {
             const {data} = await api.get(`/home/get-product-deposit-details/${encodeURIComponent(webSiteOrigin)}`)
-
-//             //console.log('slug ', slug)//, 'slug ', slug
-                ////const {data} = await api.get(`/home/price-range-latest-product/${encodeURIComponent(webSiteOrigin)}`) ///${webSiteOrigin}
-//         
-//             //const {data} = await api.get(`/home/get-product-details/${productId}`) // /${slug}
-//             //console.log(data)
+                //             //console.log('slug ', slug)//, 'slug ', slug
+                                ////const {data} = await api.get(`/home/price-range-latest-product/${encodeURIComponent(webSiteOrigin)}`) ///${webSiteOrigin}
+                //         
+                //             //const {data} = await api.get(`/home/get-product-details/${productId}`) // /${slug}
+                //             //console.log(data)
                 return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -159,7 +165,7 @@ export const get_product_deposit_details = createAsyncThunk(
 
 export const customer_review = createAsyncThunk(
     'review/customer_review',
-    async(info, { fulfillWithValue }) => {
+    async(info, { fulfillWithValue, rejectWithValue }) => {
         //console.log(info)
         try {
             const {data} = await api.post('/home/customer/submit-review', info)
@@ -167,6 +173,7 @@ export const customer_review = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -174,13 +181,14 @@ export const customer_review = createAsyncThunk(
 
 export const get_reviews = createAsyncThunk(
     'review/get_reviews',
-    async({productId, pageNumber}, { fulfillWithValue }) => {
+    async({productId, pageNumber}, { fulfillWithValue, rejectWithValue }) => {
         try {
             const {data} = await api.get(`/home/customer/get-reviews/${productId}?pageNo=${pageNumber}`)
             //  console.log(data)
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )
@@ -188,7 +196,7 @@ export const get_reviews = createAsyncThunk(
 
 export const get_banners = createAsyncThunk(
     'banner/get_banners',
-    async(webSiteOrigin, { fulfillWithValue }) => {
+    async(webSiteOrigin, { fulfillWithValue, rejectWithValue }) => {
         //console.log('get_banners ', webSiteOrigin)
         try {
             const {data} = await api.get(`/get-banners/${encodeURIComponent(webSiteOrigin)}`)
@@ -196,6 +204,7 @@ export const get_banners = createAsyncThunk(
             return fulfillWithValue(data)
         } catch (error) {
             console.log(error.respone)
+            return rejectWithValue(error)
         }
     }
 )

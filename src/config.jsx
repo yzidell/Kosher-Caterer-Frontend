@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
   const frontEndURL = webSiteOriginArr[0] + ":" + webSiteOriginArr[1] + ":3000"
   const dashBoardURL = webSiteOriginArr[0] + ":" + webSiteOriginArr[1] + ":3001"
   const backEndURL = webSiteOriginArr[0] + ":" + webSiteOriginArr[1] + ":5000"
-    
+  const backEndURLProd = webSiteOriginArr[0] + ":" + webSiteOriginArr[1] + ":6000"
     //const domain =  window.location.domain
     
     //   return (
@@ -72,6 +72,7 @@ import { useDispatch, useSelector } from 'react-redux';
         STR_FRONTEND_URL: frontEndURL, 
         STR_DASHBOARD_URL: dashBoardURL,
         STR_BACKEND_URL: backEndURL,
+        STR_BACKEND_URL_PROD: backEndURLProd,
 
         //configure site functionality
         //config.
