@@ -160,7 +160,7 @@ const Header = () => {
                             </li>
                             <li className='flex relative justify-center items-center gap-2'>
                                 <span><IoMdPhonePortrait  /></span>
-                                <span>718 781-4207<br/>Tech Support</span>
+                                <span>718 781-4207<br/>Tech Support {sellerFrontendURL}</span>
                             </li>
                         </ul>
                         <div>
