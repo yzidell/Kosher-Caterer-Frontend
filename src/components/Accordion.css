@@ -1,0 +1,9 @@
+ul {
+    padding-left: 12px;
+}
+li {
+    font-size: 6px;
+    margin-left: 10px;
+    list-style-type: circle;
+    /*margin-left: 8px;*/
+ }
